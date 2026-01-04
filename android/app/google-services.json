@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "706947679160",
+    "project_id": "droosonline-4a5b7",
+    "storage_bucket": "droosonline-4a5b7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706947679160:android:c45e47393edaea9b8d454d",
+        "android_client_info": {
+          "package_name": "com.example.droos_online"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG-QzeoNljH_jPzdB5irnWYB7cr5DpiFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
