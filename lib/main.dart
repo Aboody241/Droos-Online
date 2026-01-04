@@ -1,4 +1,4 @@
-import 'package:droos_online/features/landing/ui/landing_page.dart';
+import 'package:droos_online/app/routes.dart';
 import 'package:droos_online/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +23,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: LandingPage()
+      onGenerateRoute: AppRouter.generateRoute,
+      initialRoute: Routes.landing,
     );
   }
 }

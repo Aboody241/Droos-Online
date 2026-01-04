@@ -23,10 +23,14 @@ class UserService {
     });
   }
 
-  // جلب جميع الطلاب (stream لتحديث تلقائي)
   Stream<QuerySnapshot> getAllStudents() {
     return _db.collection('users')
         .where('role', isEqualTo: 'student')
         .snapshots();
+  }
+
+  Future<String?> getUserRole(String uid) async {
+    final doc = await _db.collection('users').doc(uid).get();
+    return doc.data()?['role'] as String?;
   }
 }

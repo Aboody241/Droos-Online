@@ -1,7 +1,11 @@
+import 'package:droos_online/core/theme/app_text_style.dart';
+import 'package:droos_online/core/theme/colors.dart';
 import 'package:droos_online/features/landing/ui/widgets/footer_landing.dart';
 import 'package:droos_online/features/landing/ui/widgets/head_landing.dart';
-import 'package:droos_online/features/landing/ui/widgets/web_features.dart';
+import 'package:droos_online/features/landing/ui/widgets/landing_appbar.dart';
+import 'package:droos_online/features/landing/ui/widgets/landing_features.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -9,32 +13,30 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            Icon(Icons.cast_for_education),
-            Text("EduPlatform", style: TextStyle()),
-            Spacer(),
-            Container(
-              decoration: BoxDecoration(color: Colors.blueAccent),
-              child: Text(
-                "تسجيل الدخول / Login",
-                style: TextStyle(color: Colors.white),
+            Gap(20),
+            LandingAppbar(),
+            Gap(20),
+
+            HeadLanding(),
+            Gap(40),
+            Text("لدينا كل ما تحتاجه للنجاح", style: AppTextStyles.black38Bold),
+            Gap(10),
+            Text(
+              "ميزات قوية مصممة للتعليم الحديث",
+              style: AppTextStyles.black20W500.copyWith(
+                color: Colors.grey.shade700,
               ),
             ),
+            Gap(30),
+            WebFeatures(),
+            Gap(40),
+            FooterLanding(),
           ],
         ),
-      ),
-      //==============
-      body: Column(
-        children: [
-          HeadLanding(),
-          Text("Everything You Need to Succeed"),
-          Text("Powerful features designed for modern education"),
-          Expanded(child: WebFeatures()),
-          FooterLanding()
-
-        ],
       ),
     );
   }
