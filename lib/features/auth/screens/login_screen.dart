@@ -8,9 +8,6 @@ import 'package:droos_online/features/auth/service/auth_service.dart';
 import 'package:droos_online/features/auth/service/user_service.dart';
 import 'package:flutter/material.dart';
 
-import 'admin_dashboard.dart';
-import 'student_dashboard.dart';
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -22,58 +19,78 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailCtrl = TextEditingController();
   final passCtrl = TextEditingController();
 
-  final authService = AuthService();
-  final userService = UserService();
+  final AuthService authService = AuthService();
+  final UserService userService = UserService();
 
   bool loading = false;
-  String selectedRole = "Student"; // القيمة الافتراضية
+  String selectedRole = "Student";
 
   Future<void> login() async {
+    if (emailCtrl.text.isEmpty || passCtrl.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter email and password')),
+      );
+      return;
+    }
+
     setState(() => loading = true);
 
     try {
+      // 1️⃣ Auth
       final user = await authService.login(
-        emailCtrl.text.trim(),
-        passCtrl.text.trim(),
+        email: emailCtrl.text.trim(),
+        password: passCtrl.text.trim(),
       );
 
       if (user == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Login failed: Invalid credentials')),
+          const SnackBar(content: Text('Invalid email or password')),
         );
-        setState(() => loading = false);
         return;
       }
 
-      final role = await userService.getUserRole(user.uid);
+      // 2️⃣ Firestore user
+      final userData = await userService.getUser(user.uid);
 
-      // تحقق من الدور المختار قبل الانتقال
-      if (selectedRole.toLowerCase() == role?.toLowerCase()) {
-        if (role == 'admin') {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (_) => const AdminDashboard()),
-          );
-        } else {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (_) => const StudentDashboard()),
-          );
-        }
-      } else {
+      if (userData == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content:
-                  Text('Role mismatch: Please select the correct user type')),
+          const SnackBar(content: Text('User not found in database')),
         );
+        return;
+      }
+
+      final role = userData['role'];
+
+      // 3️⃣ Role check
+      if (selectedRole.toLowerCase() != role.toLowerCase()) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Role mismatch: your account is $role'),
+          ),
+        );
+        return;
+      }
+
+      // 4️⃣ Navigate
+      if (role == 'admin') {
+        Navigator.pushReplacementNamed(context, '/dashboard');
+      } else {
+        Navigator.pushReplacementNamed(context, '/home');
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login failed: $e')),
+        const SnackBar(content: Text('Login failed')),
       );
+    } finally {
+      if (mounted) setState(() => loading = false);
     }
+  }
 
-    setState(() => loading = false);
+  @override
+  void dispose() {
+    emailCtrl.dispose();
+    passCtrl.dispose();
+    super.dispose();
   }
 
   @override
@@ -97,14 +114,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               children: [
                 const LoginHeader(),
                 const SizedBox(height: 30),
 
                 RoleSelection(
                   selectedRole: selectedRole,
-                  onRoleChanged: (role) => setState(() => selectedRole = role),
+                  onRoleChanged: (role) =>
+                      setState(() => selectedRole = role),
                 ),
                 const SizedBox(height: 20),
 
@@ -117,7 +134,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 const LoginActions(),
                 const SizedBox(height: 20),
 
-                // زر تسجيل الدخول
                 SizedBox(
                   width: double.infinity,
                   height: 50,
@@ -126,22 +142,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                     child: loading
                         ? const CircularProgressIndicator(
                             color: Colors.white,
+                            strokeWidth: 2,
                           )
                         : const Text(
                             "Sign In / تسجيل الدخول",
-                            style: TextStyle(fontSize: 16 , color: Colors.white),
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
                           ),
                   ),
                 ),
 
                 const SizedBox(height: 15),
                 const LoginFooter(),
-                
               ],
             ),
           ),

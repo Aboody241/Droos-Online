@@ -10,7 +10,7 @@ class LoginHeader extends StatelessWidget {
         const Icon(Icons.school, size: 50, color: Colors.blue),
         const SizedBox(height: 10),
         const Text(
-          "EduPlatform",
+          "Droos Online",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,

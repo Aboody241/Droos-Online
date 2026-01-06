@@ -78,6 +78,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
   );
+  static const black26W500 = TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.w500,
+    color: AppColors.textPrimary,
+  );
 
   static const black16Normal = TextStyle(
     fontSize: 16,

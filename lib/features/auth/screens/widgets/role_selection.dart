@@ -20,7 +20,7 @@ class RoleSelection extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         Expanded(
-          child: _buildRoleButton("Teacher", "Teacher / معلم"),
+          child: _buildRoleButton("Admin", "Admin / مشرف"),
         ),
       ],
     );

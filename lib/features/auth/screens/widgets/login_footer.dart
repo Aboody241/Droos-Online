@@ -22,6 +22,9 @@ class LoginFooter extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         TextButton(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.grey,
+          ),
           onPressed: () => Navigator.pop(context),
           child: const Text("← Back to Home"),
         ),

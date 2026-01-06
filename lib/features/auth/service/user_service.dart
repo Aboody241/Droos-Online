@@ -1,36 +1,42 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class UserService {
-  final _db = FirebaseFirestore.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // إنشاء طالب جديد
-  Future<void> createStudent({
+  /// get user document
+  Future<Map<String, dynamic>?> getUser(String uid) async {
+    try {
+      final doc =
+          await _firestore.collection('users').doc(uid).get();
+
+      if (!doc.exists) return null;
+
+      return doc.data();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// get user stream
+  Stream<DocumentSnapshot<Map<String, dynamic>>> getUserStream(String uid) {
+    return _firestore.collection('users').doc(uid).snapshots();
+  }
+
+  /// create user (admin only)
+  Future<void> createUser({
+    required String uid,
     required String name,
     required String email,
-    required String password,
+    required String role,
   }) async {
-    final userCred = await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email, password: password);
-
-    final uid = userCred.user!.uid;
-
-    await _db.collection('users').doc(uid).set({
+    await _firestore.collection('users').doc(uid).set({
       'name': name,
       'email': email,
-      'role': 'student',
+      'role': role, // admin | student
       'createdAt': FieldValue.serverTimestamp(),
     });
   }
-
-  Stream<QuerySnapshot> getAllStudents() {
-    return _db.collection('users')
-        .where('role', isEqualTo: 'student')
-        .snapshots();
-  }
-
-  Future<String?> getUserRole(String uid) async {
-    final doc = await _db.collection('users').doc(uid).get();
-    return doc.data()?['role'] as String?;
-  }
 }
+
+
+
