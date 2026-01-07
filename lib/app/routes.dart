@@ -1,6 +1,6 @@
 import 'package:droos_online/features/auth/screens/forget_password.dart';
 import 'package:droos_online/features/auth/screens/login_screen.dart';
-import 'package:droos_online/features/dashBoard/screens/main_screen/dashboard_screen.dart';
+import 'package:droos_online/features/dashBoard/screens/dashboard_screen.dart';
 import 'package:droos_online/features/dashBoard/screens/setting_screen/settings_admin_screen.dart';
 import 'package:droos_online/features/home/screen/home_screen.dart';
 import 'package:droos_online/features/home/screen/settings_screen_students.dart';

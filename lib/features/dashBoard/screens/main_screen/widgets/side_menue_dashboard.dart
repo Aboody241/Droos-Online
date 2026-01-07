@@ -37,8 +37,9 @@ class SideMenuDashboard extends StatelessWidget {
   Widget _menuItem(int index, IconData icon, String title) {
     final bool isSelected = selectedIndex == index;
 
-    return GestureDetector(
+    return InkWell(
       onTap: () => onItemSelected(index),
+      borderRadius: BorderRadius.circular(12),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),

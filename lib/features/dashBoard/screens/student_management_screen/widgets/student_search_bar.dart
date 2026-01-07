@@ -40,7 +40,7 @@ class StudentSearchBar extends StatelessWidget {
           const Gap(16),
           ElevatedButton.icon(
             onPressed: () {},
-            icon: const Icon(Icons.add, color: Colors.white),
+            icon: const Icon(Icons.person_add_alt_1_outlined, color: Colors.white),
             label: const Text("إضافة طالب"),
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,
