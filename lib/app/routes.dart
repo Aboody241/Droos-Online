@@ -1,6 +1,9 @@
+import 'package:droos_online/features/auth/screens/forget_password.dart';
 import 'package:droos_online/features/auth/screens/login_screen.dart';
 import 'package:droos_online/features/dashBoard/screens/main_screen/dashboard_screen.dart';
+import 'package:droos_online/features/dashBoard/screens/setting_screen/settings_admin_screen.dart';
 import 'package:droos_online/features/home/screen/home_screen.dart';
+import 'package:droos_online/features/home/screen/settings_screen_students.dart';
 import 'package:droos_online/features/landing/ui/landing_page.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +12,9 @@ class Routes {
   static const String login = '/login';
   static const String dashboard = '/dashboard';
   static const String home = '/home';
+  static const String settingsStudent = '/settingsStudent';
+  static const String settingsAdmin = '/settingsAdmin';
+  static const String forgetPassword = '/forgetPassword';
 }
 
 class AppRouter {
@@ -22,6 +28,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const DashboardScreen());
       case Routes.home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case Routes.settingsStudent:
+        return MaterialPageRoute(builder: (_) => const SettingsStudentScreen());
+      case Routes.settingsAdmin:
+        return MaterialPageRoute(builder: (_) => const SettingsAdminScreen());
+      case Routes.forgetPassword:
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

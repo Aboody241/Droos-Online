@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+class SettingsAdminScreen extends StatelessWidget {
+  const SettingsAdminScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Text("Settings Screen"),
     );
   }

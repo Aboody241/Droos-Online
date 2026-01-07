@@ -1,3 +1,4 @@
+import 'package:droos_online/app/routes.dart';
 import 'package:flutter/material.dart';
 
 class LoginActions extends StatelessWidget {
@@ -15,7 +16,9 @@ class LoginActions extends StatelessWidget {
           ],
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.forgetPassword);
+          },
           child: const Text(
             "نسيت كلمة المرور؟",
             style: TextStyle(color: Colors.blue),

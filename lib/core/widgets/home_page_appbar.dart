@@ -1,9 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:droos_online/core/theme/colors.dart';
 import 'package:droos_online/core/widgets/logout_button.dart';
-import 'package:droos_online/core/widgets/user_name_wiget.dart';
-import 'package:droos_online/features/auth/service/user_service.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:droos_online/core/widgets/wellcome_user_widget.dart';
 import 'package:flutter/material.dart';
 
 class PagesAppBar extends StatelessWidget {
@@ -18,6 +15,7 @@ class PagesAppBar extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.grey.withOpacity(0.2),
               spreadRadius: 2,
               blurRadius: 3,

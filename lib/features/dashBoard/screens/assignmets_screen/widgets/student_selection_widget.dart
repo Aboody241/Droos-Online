@@ -63,6 +63,7 @@ class StudentSelectionWidget extends StatelessWidget {
                 selected: isSelected,
                 onSelected: (selected) => onStudentToggled(student, selected),
                 backgroundColor: Colors.white,
+                // ignore: deprecated_member_use
                 selectedColor: AppColors.primary.withOpacity(0.1),
                 checkmarkColor: AppColors.primary,
                 shape: RoundedRectangleBorder(

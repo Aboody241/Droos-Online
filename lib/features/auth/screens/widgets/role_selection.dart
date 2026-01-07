@@ -31,6 +31,7 @@ Widget _buildRoleButton(String role, String label) {
   return OutlinedButton(
     onPressed: () => onRoleChanged(role),
     style: OutlinedButton.styleFrom(
+      // ignore: deprecated_member_use
       backgroundColor: isSelected ? Colors.blue.withOpacity(0.2) : Colors.white,
       side: BorderSide(
         color: isSelected ? AppColors.primary : Colors.grey.shade300,

@@ -1,8 +1,7 @@
 import 'package:droos_online/core/widgets/pages_title_and_descriptions.dart';
-import 'package:droos_online/features/dashBoard/screens/main_screen/widgets/dashboard_common_widgets.dart';
-import 'package:droos_online/features/dashBoard/screens/student_management/widgets/student_search_bar.dart';
-import 'package:droos_online/features/dashBoard/screens/student_management/widgets/student_stats_row.dart';
-import 'package:droos_online/features/dashBoard/screens/student_management/widgets/student_table.dart';
+import 'package:droos_online/features/dashBoard/screens/student_management_screen/widgets/student_search_bar.dart';
+import 'package:droos_online/features/dashBoard/screens/student_management_screen/widgets/student_stats_row.dart';
+import 'package:droos_online/features/dashBoard/screens/student_management_screen/widgets/student_table.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 

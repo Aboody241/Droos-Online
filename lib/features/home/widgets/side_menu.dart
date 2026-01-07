@@ -43,6 +43,7 @@ class SideMenu extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
           color: isSelected
+              // ignore: deprecated_member_use
               ? AppColors.primary.withOpacity(0.1)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(12),

@@ -28,6 +28,7 @@ class AssignOptionTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
+          // ignore: deprecated_member_use
           color: selected ? AppColors.primary.withOpacity(0.02) : Colors.white,
           border: Border.all(
             color: selected ? AppColors.primary : Colors.grey.shade200,

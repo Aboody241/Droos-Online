@@ -38,6 +38,7 @@ class PrioritySelector extends StatelessWidget {
               color: isSelected ? AppColors.primary : Colors.grey.shade300,
               width: 1.5,
             ),
+            // ignore: deprecated_member_use
             color: isSelected ? AppColors.primary.withOpacity(0.08) : Colors.white,
           ),
           child: Text(

@@ -1,5 +1,4 @@
 import 'package:droos_online/core/theme/colors.dart';
-import 'package:droos_online/core/widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -56,6 +55,7 @@ class TaskCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
+              // ignore: deprecated_member_use
               color: currentStatusColor.withOpacity(0.15),
               borderRadius: BorderRadius.circular(20),
             ),

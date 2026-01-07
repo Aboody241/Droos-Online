@@ -21,6 +21,7 @@ class StatCard extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.1),
               offset: const Offset(0, 2),
               blurRadius: 4,

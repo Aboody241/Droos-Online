@@ -1,5 +1,6 @@
 import 'package:droos_online/core/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class DashboardCard extends StatelessWidget {
   final Widget child;
@@ -23,6 +24,7 @@ class DashboardCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.05),
             offset: const Offset(0, 2),
             blurRadius: 10,
@@ -177,6 +179,49 @@ class DashboardDropdown extends StatelessWidget {
             );
           }).toList(),
           onChanged: onChanged,
+        ),
+      ),
+    );
+  }
+}
+
+class DashBoardButton extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final VoidCallback? onPressed;
+
+  const DashBoardButton({
+    super.key,
+    required this.text,
+    this.onPressed, required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: onPressed ?? () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(vertical: 18),
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            
+            Text(
+              text,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            Gap(5),
+            Icon(icon, size: 20),
+          ],
         ),
       ),
     );

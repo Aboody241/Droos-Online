@@ -24,10 +24,11 @@ class UserNameText extends StatelessWidget {
           return const Text("مرحبا");
         }
     
+        final role = snapshot.data!.data()!['role'];
         final name = snapshot.data!.data()!['name'];
     
         return Text(
-          "مرحبا  $name 👋",
+          role == "admin" ? "مرحبا مستر  $name 👋" : "مرحبا  $name 👋",
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,

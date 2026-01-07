@@ -1,6 +1,6 @@
 import 'package:droos_online/features/home/screen/grade_screen.dart';
 import 'package:droos_online/features/home/screen/materials_screen.dart';
-import 'package:droos_online/features/home/screen/settings_screen.dart';
+import 'package:droos_online/features/home/screen/settings_screen_students.dart';
 import 'package:droos_online/features/home/screen/task_screen.dart';
 import 'package:droos_online/core/widgets/home_page_appbar.dart';
 import 'package:droos_online/features/home/widgets/side_menu.dart';
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     TaskScreen(),       // المهام
     GradeScreen(),      // الدرجات
     MaterialsScreen(),   // المواد
-    SettingsScreen(),    // الإعدادات
+    SettingsStudentScreen(),    // الإعدادات
   ];
 
   @override

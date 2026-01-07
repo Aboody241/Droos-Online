@@ -34,6 +34,7 @@ class _HoverWidgetState extends State<HoverWidget> {
             boxShadow: isHovered
                 ? [
                     BoxShadow(
+                      // ignore: deprecated_member_use
                       color: Colors.black.withOpacity(0.15),
                       blurRadius: 12,
                       offset: const Offset(0, 6),

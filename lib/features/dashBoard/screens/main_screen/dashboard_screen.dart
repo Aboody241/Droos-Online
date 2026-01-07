@@ -1,6 +1,6 @@
-import 'package:droos_online/features/dashBoard/screens/assignmets/assignments_management_screen.dart';
-import 'package:droos_online/features/dashBoard/screens/grades/grades_management_screen.dart';
-import 'package:droos_online/features/dashBoard/screens/student_management/students_management_screen.dart';
+import 'package:droos_online/features/dashBoard/screens/assignmets_screen/assignments_management_screen.dart';
+import 'package:droos_online/features/dashBoard/screens/grades_screen/grades_management_screen.dart';
+import 'package:droos_online/features/dashBoard/screens/student_management_screen/students_management_screen.dart';
 import 'package:droos_online/features/dashBoard/screens/upload_screen/upload_assignments_screen.dart';
 import 'package:droos_online/features/dashBoard/screens/main_screen/widgets/side_menue_dashboard.dart';
 import 'package:droos_online/core/widgets/home_page_appbar.dart';

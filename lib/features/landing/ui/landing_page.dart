@@ -1,5 +1,4 @@
 import 'package:droos_online/core/theme/app_text_style.dart';
-import 'package:droos_online/core/theme/colors.dart';
 import 'package:droos_online/features/landing/ui/widgets/footer_landing.dart';
 import 'package:droos_online/features/landing/ui/widgets/head_landing.dart';
 import 'package:droos_online/features/landing/ui/widgets/landing_appbar.dart';

@@ -1,4 +1,3 @@
-import 'package:droos_online/core/theme/colors.dart';
 import 'package:droos_online/features/auth/service/auth_service.dart';
 import 'package:flutter/material.dart';
 
@@ -43,7 +42,7 @@ class LogoutButton extends StatelessWidget {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-                      backgroundColor: AppColors.error,
+                      backgroundColor: Colors.red[600],
                     ),
                     onPressed: () async {
                       await AuthService().logout();

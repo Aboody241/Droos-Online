@@ -1,6 +1,6 @@
 import 'package:droos_online/features/home/screen/materials_screen.dart';
 import 'package:droos_online/features/home/screen/grade_screen.dart';
-import 'package:droos_online/features/home/screen/settings_screen.dart';
+import 'package:droos_online/features/home/screen/settings_screen_students.dart';
 import 'package:droos_online/features/home/screen/task_screen.dart';
 import 'package:droos_online/features/home/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class _MainLayoutState extends State<MainLayout> {
     TaskScreen(),
     GradeScreen(),
     MaterialsScreen(),
-    SettingsScreen(),
+    SettingsStudentScreen(),
   ];
 
   @override

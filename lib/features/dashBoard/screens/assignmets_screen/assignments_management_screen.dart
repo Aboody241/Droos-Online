@@ -1,7 +1,9 @@
+// ignore: unused_import
 import 'package:droos_online/core/theme/colors.dart';
 import 'package:droos_online/core/widgets/pages_title_and_descriptions.dart';
+import 'package:droos_online/core/widgets/static_box.dart';
 import 'package:droos_online/features/dashBoard/screens/main_screen/widgets/dashboard_common_widgets.dart';
-import 'package:droos_online/features/dashBoard/screens/assignmets/widgets/assignment_widgets.dart';
+import 'package:droos_online/features/dashBoard/screens/assignmets_screen/widgets/assignment_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -123,6 +125,7 @@ class _AssignmentsManagementScreenState
               const DashboardLabel("عنوان المهمة *"),
               const Gap(8),
               const DashboardTextField(
+                
                 hint: "مثال: واجب الرياضيات – الفصل الخامس",
               ),
               const Gap(24),
@@ -195,25 +198,7 @@ class _AssignmentsManagementScreenState
                 const Gap(24),
               ],
 
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 18),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: const Text(
-                    "إضافة المهمة",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
+              DashBoardButton(text: 'ارسال المهمة', icon: Icons.send,),
             ],
           ),
         ),
@@ -224,24 +209,12 @@ class _AssignmentsManagementScreenState
   Widget _buildStatsAndRecent() {
     return Column(
       children: [
-        const Row(
-          children: [
-            Expanded(
-              child: DashboardStatCard(
-                title: "المهام النشطة",
-                value: "12",
-                valueColor: Color(0xFF2563EB),
-              ),
-            ),
-            SizedBox(width: 16),
-            Expanded(
-              child: DashboardStatCard(
-                title: "المهام المكتملة",
-                value: "45",
-                valueColor: Color(0xFF059669),
-              ),
-            ),
-          ],
+        const StaticBox(
+          title: "المهام النشطة",
+          value: "12",
+          valueColor: Color(0xFF2563EB), 
+          title2: 'المهام النشطة', 
+          value2: '12',
         ),
         const SizedBox(height: 24),
         DashboardCard(
@@ -297,3 +270,12 @@ class _AssignmentsManagementScreenState
     );
   }
 }
+
+
+
+
+
+
+
+
+

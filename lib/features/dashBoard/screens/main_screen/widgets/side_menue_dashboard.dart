@@ -28,6 +28,7 @@ class SideMenuDashboard extends StatelessWidget {
           _menuItem(1, Icons.task_alt_rounded, "Assignments / تعيين المهام"),
           _menuItem(2, Icons.grade_rounded, "Grades / ادارة الدرجات"),
           _menuItem(3, Icons.upload_file_rounded, "Upload Assignment / رفع المهام"),
+          _menuItem(4, Icons.settings, "Settings / الإعدادات"),
         ],
       ),
     );
@@ -43,6 +44,7 @@ class SideMenuDashboard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
           color: isSelected
+              // ignore: deprecated_member_use
               ? AppColors.primary.withOpacity(0.1)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
