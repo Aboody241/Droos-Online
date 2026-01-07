@@ -20,9 +20,8 @@ class LandingPage extends StatelessWidget {
             Gap(20),
             LandingAppbar(),
             Gap(20),
-
             HeadLanding(),
-            Gap(40),
+            Gap(35),
             Text("لدينا كل ما تحتاجه للنجاح", style: AppTextStyles.black38Bold),
             Gap(10),
             Text(
