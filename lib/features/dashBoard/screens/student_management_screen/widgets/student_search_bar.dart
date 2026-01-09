@@ -1,3 +1,4 @@
+import 'package:droos_online/app/routes.dart';
 import 'package:droos_online/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -39,7 +40,9 @@ class StudentSearchBar extends StatelessWidget {
           ),
           const Gap(16),
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+            Navigator.pushNamed(context, Routes.addStudent);
+            },
             icon: const Icon(Icons.person_add_alt_1_outlined, color: Colors.white),
             label: const Text("إضافة طالب"),
             style: ElevatedButton.styleFrom(

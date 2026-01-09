@@ -1,1 +1,42 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"droosonline-4a5b7","appId":"1:706947679160:android:c45e47393edaea9b8d454d","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"droosonline-4a5b7","configurations":{"android":"1:706947679160:android:c45e47393edaea9b8d454d","ios":"1:706947679160:ios:127e3de302c0cbd48d454d","macos":"1:706947679160:ios:127e3de302c0cbd48d454d","web":"1:706947679160:web:e06d0450d99925738d454d","windows":"1:706947679160:web:c499fa18669b8f4d8d454d"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "droosonline-4a5b7",
+          "appId": "1:706947679160:android:c45e47393edaea9b8d454d",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "droosonline-4a5b7",
+          "configurations": {
+            "android": "1:706947679160:android:c45e47393edaea9b8d454d",
+            "ios": "1:706947679160:ios:127e3de302c0cbd48d454d",
+            "macos": "1:706947679160:ios:127e3de302c0cbd48d454d",
+            "web": "1:706947679160:web:e06d0450d99925738d454d",
+            "windows": "1:706947679160:web:c499fa18669b8f4d8d454d"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ]
+}

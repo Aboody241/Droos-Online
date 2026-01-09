@@ -2,6 +2,7 @@ import 'package:droos_online/features/auth/screens/forget_password.dart';
 import 'package:droos_online/features/auth/screens/login_screen.dart';
 import 'package:droos_online/features/dashBoard/screens/dashboard_screen.dart';
 import 'package:droos_online/features/dashBoard/screens/setting_screen/settings_admin_screen.dart';
+import 'package:droos_online/features/dashBoard/screens/student_management_screen/widgets/add_student_widget.dart';
 import 'package:droos_online/features/home/screen/home_screen.dart';
 import 'package:droos_online/features/home/screen/settings_screen_students.dart';
 import 'package:droos_online/features/landing/ui/landing_page.dart';
@@ -15,6 +16,7 @@ class Routes {
   static const String settingsStudent = '/settingsStudent';
   static const String settingsAdmin = '/settingsAdmin';
   static const String forgetPassword = '/forgetPassword';
+  static const String addStudent = '/addStudent';
 }
 
 class AppRouter {
@@ -34,6 +36,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SettingsAdminScreen());
       case Routes.forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+      case Routes.addStudent:
+        return MaterialPageRoute(builder: (_) => const AddStudentScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
