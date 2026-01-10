@@ -33,4 +33,46 @@ class UserService {
       'createdAt': FieldValue.serverTimestamp(),
     });
   }
+
+
+/// Get students
+  Stream<List<Map<String, dynamic>>> getStudents() {
+  return FirebaseFirestore.instance
+      .collection('users')
+      .where('role', isEqualTo: 'student')
+      .snapshots()
+      .map((snapshot) {
+    return snapshot.docs.map((doc) {
+      final data = doc.data();
+      data['uid'] = doc.id;
+      return data;
+    }).toList();
+  });
+}
+
+/// Delete student
+  /// Delete student
+  Future<void> deleteStudent(String uid) async {
+    try {
+      await _firestore.collection('users').doc(uid).delete();
+    } catch (e) {
+      throw Exception('فشل حذف الطالب: $e');
+    }
+  }
+
+
+
+
+  Future<void> toggleStudentStatus({
+    required String uid,
+    required bool isActive,
+  }) async {
+    try {
+      await _firestore.collection('users').doc(uid).update({
+        'status': isActive ? 'inactive' : 'active',
+      });
+    } catch (e) {
+      throw Exception('فشل تحديث حالة الطالب: $e');
+    }
+  }
 }

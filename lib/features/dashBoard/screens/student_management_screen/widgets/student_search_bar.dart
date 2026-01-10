@@ -1,5 +1,6 @@
 import 'package:droos_online/app/routes.dart';
 import 'package:droos_online/core/theme/colors.dart';
+import 'package:droos_online/features/dashBoard/screens/student_management_screen/widgets/add_student_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -39,21 +40,28 @@ class StudentSearchBar extends StatelessWidget {
             ),
           ),
           const Gap(16),
-          ElevatedButton.icon(
-            onPressed: () {
-            Navigator.pushNamed(context, Routes.addStudent);
-            },
-            icon: const Icon(Icons.person_add_alt_1_outlined, color: Colors.white),
-            label: const Text("إضافة طالب"),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primary,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-          ),
+        ElevatedButton.icon(
+  onPressed: () {
+    showDialog(
+      context: context,
+      barrierDismissible: false, // لو عايز تمنع الإغلاق بالضغط خارج الديالوج
+      builder: (context) {
+        return const AddStudentDialog();
+      },
+    );
+  },
+  icon: const Icon(Icons.person_add_alt_1_outlined, color: Colors.white),
+  label: const Text("إضافة طالب"),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: AppColors.primary,
+    foregroundColor: Colors.white,
+    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+    ),
+  ),
+),
+
         ],
       ),
     );

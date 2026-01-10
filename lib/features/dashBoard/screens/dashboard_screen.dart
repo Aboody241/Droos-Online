@@ -4,6 +4,7 @@ import 'package:droos_online/features/dashBoard/screens/student_management_scree
 import 'package:droos_online/features/dashBoard/screens/upload_screen/upload_assignments_screen.dart';
 import 'package:droos_online/features/dashBoard/screens/main_screen/widgets/side_menue_dashboard.dart';
 import 'package:droos_online/core/widgets/home_page_appbar.dart';
+import 'package:droos_online/features/dashBoard/screens/setting_screen/settings_admin_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     AssignmentsManagementScreen(),
     GradesManagementScreen(),
     UploadAssignmentsScreen(),
+    SettingsAdminScreen(),
   ];
 
   @override

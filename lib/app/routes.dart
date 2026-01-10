@@ -37,7 +37,7 @@ class AppRouter {
       case Routes.forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case Routes.addStudent:
-        return MaterialPageRoute(builder: (_) => const AddStudentScreen());
+        return MaterialPageRoute(builder: (_) => const AddStudentDialog());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
